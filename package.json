@@ -1,6 +1,6 @@
 {
   "name": "slidem-codepen-slide",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A codepen slide",
   "main": "slidem-codepen-slide.js",
   "umd:main": "slidem-codepen-slide.umd.js",
