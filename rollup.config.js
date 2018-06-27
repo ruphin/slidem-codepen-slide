@@ -5,19 +5,19 @@ import includePaths from 'rollup-plugin-includepaths';
 import * as path from 'path';
 
 const includePathOptions = {
-  paths: ['node_modules/gluonjs', '.'],
+  paths: ['node_modules/@gluon', '.'],
   extensions: ['.js']
 };
 
 const globals = {};
-globals[path.resolve('../gluonjs/gluon.js')] = 'GluonJS';
-globals[path.resolve('node_modules/gluonjs/gluon.js')] = 'GluonJS';
+globals[path.resolve('../@gluon/gluon/gluon.js')] = 'GluonJS';
+globals[path.resolve('node_modules/@gluon/gluon/gluon.js')] = 'GluonJS';
 
 function getConfig({ input, dest, format, uglified = true, transpiled = false, bundled = false }) {
   const conf = {
     input: input,
     output: { exports: 'named', file: dest, format, name: 'slidem', sourcemap: true, globals },
-    external: [path.resolve('../gluonjs/gluon.js'), path.resolve('node_modules/gluonjs/gluon.js')],
+    external: [path.resolve('../@gluon/gluon/gluon.js'), path.resolve('node_modules/@gluon/gluon/gluon.js')],
     plugins: [
       includePaths(includePathOptions),
       transpiled &&
@@ -63,13 +63,6 @@ const demo = ({ uglified = false } = {}) => {
   };
 };
 
-const config = [
-  getConfig({ input: './src/slidem-deck.js', dest: 'slidem-deck.umd.js', format: 'umd' }),
-  getConfig({ input: './src/slidem-slide-base.js', dest: 'slidem-slide-base.umd.js', format: 'umd' }),
-  getConfig({ input: './src/slidem-slide.js', dest: 'slidem-slide.umd.js', format: 'umd' }),
-  getConfig({ input: './src/slidem-video-slide.js', dest: 'slidem-video-slide.umd.js', format: 'umd' }),
-  getConfig({ input: './src/slidem-polymersummit-slide.js', dest: 'slidem-polymersummit-slide.umd.js', format: 'umd' }),
-  demo({ uglified: true })
-];
+const config = [getConfig({ input: './src/slidem-codepen-slide.js', dest: 'slidem-codepen-slide.umd.js', format: 'umd' }), demo({ uglified: true })];
 
 export default config;

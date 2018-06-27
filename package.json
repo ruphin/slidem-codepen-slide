@@ -1,7 +1,9 @@
 {
   "name": "slidem-codepen-slide",
+  "version": "0.0.0",
   "description": "A codepen slide",
   "main": "slidem-codepen-slide.js",
+  "umd:main": "slidem-codepen-slide.umd.js",
   "module": "slidem-codepen-slide.js",
   "jsnext:main": "slidem-codepen-slide.js",
   "files": [
@@ -21,6 +23,10 @@
     "slidem": "^1.2.2"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
     "np": "^3.0.4",
     "browser-sync": "^2.24.4",
     "rollup": "^0.58.2",
