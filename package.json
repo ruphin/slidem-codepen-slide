@@ -2,37 +2,36 @@
   "name": "slidem-codepen-slide",
   "version": "0.1.0",
   "description": "A codepen slide",
-  "main": "slidem-codepen-slide.js",
-  "umd:main": "slidem-codepen-slide.umd.js",
-  "module": "slidem-codepen-slide.js",
-  "jsnext:main": "slidem-codepen-slide.js",
+  "type": "module",
+  "main": "dist/slidem-codepen-slide.js",
+  "module": "dist/slidem-codepen-slide.js",
+  "jsnext:main": "dist/slidem-codepen-slide.js",
+  "exports": {
+    ".": "./dist/slidem-codepen-slide.js",
+    "./slidem-codepen-slide.js": "./dist/slidem-codepen-slide.js",
+    "./package.json": "./package.json"
+  },
   "files": [
-    "slidem-codepen-slide.js"
+    "dist"
   ],
   "repository": "git@github.com:ruphin/slidem-codepen-slide.git",
   "author": "Goffert van Gool",
   "license": "MIT",
   "scripts": {
-    "build": "cp src/*.js ./ && rollup -c",
-    "dev": "browser-sync start --config browsersync.config.js",
-    "release": "np",
-    "test": "echo 'No tests!'"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite build --mode demo && vite preview --mode demo",
+    "test": "vitest run --passWithNoTests",
+    "prepublishOnly": "npm run build",
+    "release": "np"
   },
   "dependencies": {
     "@gluon/gluon": "^2.4.1",
     "slidem": "^1.2.2"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "np": "^3.0.4",
-    "browser-sync": "^2.24.4",
-    "rollup": "^0.58.2",
-    "rollup-plugin-babel": "^3.0.4",
-    "rollup-plugin-filesize": "^2.0.0",
-    "rollup-plugin-includepaths": "^0.2.2",
-    "rollup-plugin-uglify": "^3.0.0"
+    "np": "^12.1.1",
+    "vite": "^8.3.3",
+    "vitest": "^5.0.3"
   }
 }

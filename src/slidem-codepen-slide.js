@@ -1,5 +1,5 @@
-import { html } from '../@gluon/gluon/gluon.js';
-import { SlidemSlideBase } from '../slidem/slidem-slide-base.js';
+import { html } from '@gluon/gluon';
+import { SlidemSlideBase } from 'slidem/slidem-slide-base.js';
 
 export class SlidemCodepenSlide extends SlidemSlideBase {
   get template() {
